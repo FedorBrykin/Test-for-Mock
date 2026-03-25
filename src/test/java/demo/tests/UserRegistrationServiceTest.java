@@ -5,6 +5,7 @@ import demo.app.NotificationGateway;
 import demo.app.UserRegistrationService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import ru.nsu.annotation.Mock;
 import ru.nsu.api.JokeMock;
 import ru.nsu.extension.JokeMockExtension;
 
@@ -17,11 +18,14 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @ExtendWith(JokeMockExtension.class)
 class UserRegistrationServiceTest {
 
+    @Mock
+    private NotificationGateway gateway;
+
+    @Mock
+    private AuditGateway auditGateway;
+
     @Test
     void register_succeedsWhenDependenciesReturnTrue() {
-        NotificationGateway gateway = JokeMock.mock(NotificationGateway.class);
-        AuditGateway auditGateway = JokeMock.mock(AuditGateway.class);
-
         JokeMock.when(gateway.sendWelcomeEmail("john@example.com", "Welcome!"))
                 .thenReturn(Boolean.TRUE);
         JokeMock.when(auditGateway.writeEntry("REGISTER", "john@example.com"))
@@ -35,9 +39,6 @@ class UserRegistrationServiceTest {
 
     @Test
     void register_throwsWhenGatewayThrows() {
-        NotificationGateway gateway = JokeMock.mock(NotificationGateway.class);
-        AuditGateway auditGateway = JokeMock.mock(AuditGateway.class);
-
         JokeMock.when(gateway.sendWelcomeEmail("anna@example.com", "Welcome!"))
                 .thenThrow(new IllegalStateException("smtp unavailable"));
 

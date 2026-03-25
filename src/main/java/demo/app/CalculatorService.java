@@ -1,7 +1,7 @@
 package demo.app;
 
 /**
- * Конкретный класс (не интерфейс) для демонстрации мокирования классов.
+ * Конкретный класс для демонстрации мокирования классов.
  */
 public class CalculatorService {
     public int add(int a, int b) {
