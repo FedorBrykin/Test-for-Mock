@@ -38,7 +38,7 @@ class SpyDoReturnDoThrowTest {
         JokeMock.doReturn(100).when(spy).size();
 
         assertEquals(100, spy.size());
-        assertEquals("x", spy.get(0)); // не замокано — идёт в реальный объект
+        assertEquals("x", spy.get(0));
     }
 
     @Test

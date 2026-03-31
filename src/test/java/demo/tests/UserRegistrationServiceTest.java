@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
- * Интеграционный тест: UserRegistrationService с замоканными зависимостями.
+ * UserRegistrationService с замоканными зависимостями.
  */
 @ExtendWith(JokeMockExtension.class)
 class UserRegistrationServiceTest {
