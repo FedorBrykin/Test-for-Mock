@@ -1,6 +1,6 @@
 # Test-for-Mock
 
-Демо-проект для библиотеки **Joke Mock** из `PPO/Mock-Framework`.
+Демо-проект для библиотеки **Mock** из `PPO/Mock-Framework`.
 
 ## Структура
 
